@@ -1,0 +1,58 @@
+package conexaoJdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+/**
+ * 
+ * @author A classe SingleConnection conecta o projeto java com banco de dados
+ *         (sql)
+ *
+ */
+public class SingleConnection {
+
+	private static String url = "jdbc:postgresql://localhost:5432/posjava";
+	private static String password = "admin";
+	private static String user = "postgres";
+	private static Connection connection = null;
+
+	
+
+	static {
+		conectar();
+	}
+
+	public SingleConnection() {
+		conectar();
+	}
+
+	private static void conectar() {
+
+		try {
+
+			// verificação da conexão projeto java ao banco de dados (sql)
+			if (connection == null) {
+
+				// Carrega o drive do sgdb (postgresql)
+				Class.forName("org.postgresql.Driver");
+				// conecta o drive do postgresql ao projeto java desde que a url, usuário e
+				// password esteja corretos
+				connection = DriverManager.getConnection(url, user, password);
+				connection.setAutoCommit(false);
+				// Envia mensagem ao console de conexão ao banco de dados
+				System.out.println("Successfully run");
+
+			}
+
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+
+		}
+	}
+	
+	public static Connection getConnection() {
+		return connection;
+	}
+
+}

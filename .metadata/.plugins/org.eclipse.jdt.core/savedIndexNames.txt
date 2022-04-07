@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/home/cafecomjava/Documents/Introducao-de-persistencia-de-dados-usando-JDBC-e-PostgreSQL/.metadata/.plugins/org.eclipse.jdt.core
+1573560739.index
+1865797976.index
+517469838.index

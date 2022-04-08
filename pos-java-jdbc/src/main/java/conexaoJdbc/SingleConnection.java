@@ -3,6 +3,8 @@ package conexaoJdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import javax.swing.JOptionPane;
+
 /**
  * 
  * @author A classe SingleConnection conecta o projeto java com banco de dados
@@ -11,7 +13,7 @@ import java.sql.DriverManager;
  */
 public class SingleConnection {
 
-	private static String url = "jdbc:postgresql://localhost:5432/posjava";
+	private static String url = "jdbc:postgresql://localhost:5432/javaJdbc";
 	private static String password = "admin";
 	private static String user = "postgres";
 	private static Connection connection = null;
@@ -40,7 +42,10 @@ public class SingleConnection {
 				connection = DriverManager.getConnection(url, user, password);
 				connection.setAutoCommit(false);
 				// Envia mensagem ao console de conexão ao banco de dados
-				System.out.println("Successfully run");
+				
+				String status = "Conectado ao SQL";
+				
+				JOptionPane.showMessageDialog(null, status);
 
 			}
 

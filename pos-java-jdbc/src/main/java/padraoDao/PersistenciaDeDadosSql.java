@@ -27,14 +27,14 @@ public class PersistenciaDeDadosSql {
 
 		try {
 
-			// Comando sql para inserir registros na tabela dadospessoais.
+			// Comando sql para inserir(INSERT) registros na tabela dadospessoais.
 			String sql = "insert into dadospessoais (nome, cpf, email) values (?, ?, ?)";
 
 			// Interface que utilizada para executar instruções sql.
 			// Quando o PreparedStatement é criado, a consulta sql é passada como um
 			// parâmetro.
 			PreparedStatement insert = connection.prepareStatement(sql);
-			//insert.setLong(1, 5);
+			// insert.setLong(1, 5);
 			insert.setString(1, dadosPessoas.getNome());
 			insert.setString(2, dadosPessoas.getCpf());
 			insert.setString(3, dadosPessoas.getEmail());
@@ -117,7 +117,8 @@ public class PersistenciaDeDadosSql {
 
 	public void alterar(DadosPessoas dadosPessoas) {
 
-		// <<--------Executa o comando sql para atualizar o nome no registro da tabela ------>
+		// <<--------Executa o comando sql para atualizar o "nome" no registro da tabela
+		// ------>
 		String sqlUpdateNome = "update dadospessoais set nome = ? where id = " + dadosPessoas.getId();
 
 		try {
@@ -138,7 +139,8 @@ public class PersistenciaDeDadosSql {
 			}
 
 		}
-		// <<--------Executa o comando sql para atualizar o cpf no registro da tabela ------>
+		// <<--------Executa o comando sql para atualizar (UPDATE) o "cpf" no registro da tabela ------>>
+		
 		String sqlUpdateCpf = "update dadospessoais set cpf = ? where id = " + dadosPessoas.getId();
 		// String sql ="update dadospessoais set email = ? where id = " +
 		// dadosPessoas.getId();
@@ -161,7 +163,8 @@ public class PersistenciaDeDadosSql {
 			}
 
 		}
-		// <<--------Executa o comando sql para atualizar o email no registro da tabela------>
+		// <<--------Executa o comando sql para atualizar(UPDATE) o "email" no registro da
+		// tabela------>
 		String sqlUpdateEmail = "update dadospessoais set email = ? where id = " + dadosPessoas.getId();
 
 		try {
@@ -184,4 +187,24 @@ public class PersistenciaDeDadosSql {
 		}
 
 	}
+
+	// <<--------Executa o comando sql para Deletar (Delete)  um registro na tabela (usando a query ID)------>
+
+	public void deletar(Long id) {
+		try {
+			String sqlDeletar = "delete from dadospessoais where id = " + id;
+			PreparedStatement preparedStatement = connection.prepareStatement(sqlDeletar);
+			preparedStatement.execute();
+			connection.commit();
+		} catch (Exception e) {
+
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+
+		}
+	}
+
 }

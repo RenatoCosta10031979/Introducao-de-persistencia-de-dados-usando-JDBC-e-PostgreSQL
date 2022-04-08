@@ -28,7 +28,7 @@ public class TestesDePersistencia {
 		
 		// <<---EXECUTA O MÉTODO CRIARREGISTRO() NA TABELA------->>
 		 
-		PersistenciaDeDadosSql persistenciaDeDadosSqlCriarDados = new PersistenciaDeDadosSql();
+		/*PersistenciaDeDadosSql persistenciaDeDadosSqlCriarDados = new PersistenciaDeDadosSql();
 		DadosPessoas dadosPessoas = new DadosPessoas();
 		
 		//"Setar os atributos para criar o registro na tabela"
@@ -36,7 +36,7 @@ public class TestesDePersistencia {
 		dadosPessoas.setNome("Bruno Yago Moreira");
 		dadosPessoas.setCpf("Bruno Yago Moreira");
 		dadosPessoas.setEmail("bruno.yago.moreira@tirel.com.br");
-		persistenciaDeDadosSqlCriarDados.criarSalvarRegistros(dadosPessoas);
+		persistenciaDeDadosSqlCriarDados.criarSalvarRegistros(dadosPessoas);*/
 		
 		// <<---EXECUTA O MÉTODO CONSULTAR  (SELECT) REGISTRO TABELA------->>
 		//                 (RETORNA UMA LISTA DE REGISTROS)
@@ -72,25 +72,41 @@ public class TestesDePersistencia {
 		}*/
 		
 		// <<------- EXECUTA O MÉTODO ATUALIZAR (UPDATE) REGISTRO TABELA------->>
-		try {
+		/*try {
 			PersistenciaDeDadosSql persistenciaDeDadosSqlAtualizar = new PersistenciaDeDadosSql();
 			
 			/* Instância o objeto do tipo DadosPessoas que recebe o método retornarRegistro
 			e passamos o parâmetro o id do registro da tabela para atualizar os dados de registro da tabela.*/
-			DadosPessoas alterarRegistro = persistenciaDeDadosSqlAtualizar.retornarRegistros(3L);
+			/*DadosPessoas alterarRegistro = new DadosPessoas();
 			
 			alterarRegistro.setNome("Lavínia Gabriela Joana da Paz");
 			alterarRegistro.setCpf("699.962.405-41");
-			alterarRegistro.setEmail("lavinia-dapaz75@alstom.com");
+			alterarRegistro.setEmail("lavinia-dapaz75@alstom.com");*/
 			
 			/*O objeto persistencidaDeDadosSql acessa ao metodo alterar (update) e passa o 
 			o objeto consultarRegistro como parâmetro que armazena o valor do id passado pelo usuário.*/
-			persistenciaDeDadosSqlAtualizar.alterar(alterarRegistro);
+			//persistenciaDeDadosSqlAtualizar.alterar(alterarRegistro);
 			
-			JOptionPane.showMessageDialog(null, "Os dados foram atualizados");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+			//JOptionPane.showMessageDialog(null, "Os dados foram atualizados");
+		//} catch (Exception e) {
+			//e.printStackTrace();
+		//}
+		
+		
+		// <<------- EXECUTA O MÉTODO DELETAR (DELETE) REGISTRO TABELA------->>
+		
+				try {
+					
+					PersistenciaDeDadosSql persistenciaDeDadosSqlDeletar = new PersistenciaDeDadosSql();
+					persistenciaDeDadosSqlDeletar.deletar(6L);
+					JOptionPane.showMessageDialog(null, "O dados foram excluídos");
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	
 
+		
+		
+	}
 }

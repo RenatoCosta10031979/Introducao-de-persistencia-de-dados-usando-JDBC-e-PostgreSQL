@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexaoJdbc.SingleConnection;
+import model.Curso;
 import model.DadosPessoas;
 
 public class PersistenciaDeDadosSql {
@@ -46,6 +47,30 @@ public class PersistenciaDeDadosSql {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void criarRegistroCurso(Curso curso) {
+		
+		try {
+			
+			String sqlCurso = "INSERT INTO public.curso (curso, tipo, idpessoa) VALUES (?, ?, ?)";
+			PreparedStatement statement = connection.prepareStatement(sqlCurso);
+			statement.setString(1, curso.getCurso());
+			statement.setString(2, curso.getTipo());
+			statement.setLong(3, curso.getIdprimario());
+			statement.execute();
+			connection.commit();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
 	}
 
 	// -------MÉTODO CONSULTAR (SELECT), TODOS OS REGISTRO DA TABELA (RETORNA UMA

@@ -23,21 +23,21 @@ public class PersistenciaDeDadosSql {
 	// ------------------------//
 
 	// Método inserts insere os dados na tabela dadospessoais
-	public void inserirRegistros(DadosPessoas dadosPessoas) {
+	public void criarSalvarRegistros(DadosPessoas dadosPessoas) {
 
 		try {
 
 			// Comando sql para inserir registros na tabela dadospessoais.
-			String sql = "insert into dadospessoais (id, nome, cpf, email) values (?, ?, ?, ?)";
+			String sql = "insert into dadospessoais (nome, cpf, email) values (?, ?, ?)";
 
 			// Interface que utilizada para executar instruções sql.
 			// Quando o PreparedStatement é criado, a consulta sql é passada como um
 			// parâmetro.
 			PreparedStatement insert = connection.prepareStatement(sql);
-			insert.setLong(1, 4);
-			insert.setString(2, "Lívia Heloisa Laís Ribeiro");
-			insert.setString(3, "238.134.986-38");
-			insert.setString(4, "livia-ribeiro74@bakerhughes.com");
+			//insert.setLong(1, 5);
+			insert.setString(1, dadosPessoas.getNome());
+			insert.setString(2, dadosPessoas.getCpf());
+			insert.setString(3, dadosPessoas.getEmail());
 			insert.execute();
 			connection.commit(); // salva o registro no banco de dados após persistir dados com sql.
 

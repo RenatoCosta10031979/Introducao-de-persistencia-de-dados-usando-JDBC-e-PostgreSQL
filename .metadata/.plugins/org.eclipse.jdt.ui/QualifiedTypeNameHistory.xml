@@ -7,11 +7,11 @@
     <fullyQualifiedTypeName name="conexaoJdbc.SingleConnection"/>
     <fullyQualifiedTypeName name="org.junit.Test"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="padraoDao.PersistenciaDeDadosSql"/>
     <fullyQualifiedTypeName name="model.DadosPessoas"/>
 </qualifiedTypeNameHistroy>
